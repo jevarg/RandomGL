@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>1DD2C4E2-4CBE-4D74-A964-57BBA5B98279</string>
+	<key>IDESourceControlProjectName</key>
+	<string>randomgl</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>3DD32C25-4879-402B-B53B-AC679408EE83</key>
+		<string>ssh://github.com/jan0t/RandomGL.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>randomgl.xcodeproj/project.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>3DD32C25-4879-402B-B53B-AC679408EE83</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>ssh://github.com/jan0t/RandomGL.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>110</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>3DD32C25-4879-402B-B53B-AC679408EE83</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>3DD32C25-4879-402B-B53B-AC679408EE83</string>
+			<key>IDESourceControlWCCName</key>
+			<string>RandomGL</string>
+		</dict>
+	</array>
+</dict>
+</plist>
