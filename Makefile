@@ -10,7 +10,8 @@
 
 UNAME_S 	:= 	$(shell uname -s)
 
-SRC         =	main.cpp
+SRC         =	main.cpp \
+                Engine.cpp
 
 ifeq ($(UNAME_S), Darwin)
     CC          =   clang++
@@ -26,7 +27,7 @@ NAME		=	randomgl
 
 OBJDIR		=	obj/
 SRCDIR		=	src/
-INCDIR		=	inc/
+INCDIR		=	include/
 
 CFLAGS		+=	-I$(INCDIR)
 CFLAGS		+=	-Wall -Wextra -Winit-self
