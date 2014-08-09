@@ -11,12 +11,16 @@
 UNAME_S 	:= 	$(shell uname -s)
 
 SRC         =	main.cpp \
-                Engine.cpp
+                Engine.cpp \
+                ATransformation.cpp \
+                Geometry.cpp \
+                Cube.cpp \
+                Shader.cpp
 
 ifeq ($(UNAME_S), Darwin)
     CC          =   clang++
 else
-    CC          =	gcc
+    CC          =	g++
 endif
 
 FILETYPE	=	.cpp
@@ -28,6 +32,7 @@ NAME		=	randomgl
 OBJDIR		=	obj/
 SRCDIR		=	src/
 INCDIR		=	include/
+LIBDIR      =   libs/
 
 CFLAGS		+=	-I$(INCDIR)
 CFLAGS		+=	-Wall -Wextra -Winit-self

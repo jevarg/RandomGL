@@ -6,7 +6,7 @@
 //  Copyright (c) 2014 Jean Gravier. All rights reserved.
 //
 
-#include "Engine.h"
+#include "Engine.hpp"
 
 Engine::Engine(int windowX, int windowY)
 : _windowX(windowX), _windowY(windowY), _running(false)

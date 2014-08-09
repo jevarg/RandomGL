@@ -10,6 +10,13 @@
 		A93C002F1993DCF300D3C57E /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A93C002E1993DCF300D3C57E /* SDL2.framework */; };
 		A93C00311993DDF300D3C57E /* main.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A92A1DDF1992417C00AAB829 /* main.cpp */; };
 		A93C00341993E19600D3C57E /* Engine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A93C00321993E19600D3C57E /* Engine.cpp */; };
+		A93C9412199530BB000D17E7 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A93C9411199530BA000D17E7 /* OpenGL.framework */; };
+		A93C942119953378000D17E7 /* Shader.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A93C942019953378000D17E7 /* Shader.cpp */; };
+		A93C9423199534C4000D17E7 /* Cube.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A93C9422199534C4000D17E7 /* Cube.cpp */; };
+		A93C942519953797000D17E7 /* Texture.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A93C942419953797000D17E7 /* Texture.cpp */; };
+		A93C942819953FEC000D17E7 /* SDL2_image.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A93C942719953FEC000D17E7 /* SDL2_image.framework */; };
+		A9AF69EF19951DA200D4A5A2 /* Geometry.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9AF69EE19951DA200D4A5A2 /* Geometry.cpp */; };
+		A9AF69F519951EA900D4A5A2 /* ATransformation.cpp in Sources */ = {isa = PBXBuildFile; fileRef = A9AF69F419951EA900D4A5A2 /* ATransformation.cpp */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -18,7 +25,20 @@
 		A93C00241993DAE000D3C57E /* randomgl-doc */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = "randomgl-doc"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A93C002E1993DCF300D3C57E /* SDL2.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2.framework; path = /Library/Frameworks/SDL2.framework; sourceTree = "<absolute>"; };
 		A93C00321993E19600D3C57E /* Engine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Engine.cpp; sourceTree = "<group>"; };
-		A9BB872C1993E570009D47CD /* Engine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Engine.h; path = include/Engine.h; sourceTree = SOURCE_ROOT; };
+		A93C9411199530BA000D17E7 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = ../../../../../System/Library/Frameworks/OpenGL.framework; sourceTree = "<group>"; };
+		A93C94141995336E000D17E7 /* Shader.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Shader.hpp; path = include/Shader.hpp; sourceTree = SOURCE_ROOT; };
+		A93C942019953378000D17E7 /* Shader.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Shader.cpp; sourceTree = "<group>"; };
+		A93C9422199534C4000D17E7 /* Cube.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Cube.cpp; sourceTree = "<group>"; };
+		A93C942419953797000D17E7 /* Texture.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Texture.cpp; sourceTree = "<group>"; };
+		A93C9426199537B5000D17E7 /* Texture.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Texture.hpp; path = include/Texture.hpp; sourceTree = SOURCE_ROOT; };
+		A93C942719953FEC000D17E7 /* SDL2_image.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SDL2_image.framework; path = /Library/Frameworks/SDL2_image.framework; sourceTree = "<absolute>"; };
+		A9501C23199694C30092C89F /* OpenGL.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = OpenGL.hpp; path = include/OpenGL.hpp; sourceTree = SOURCE_ROOT; };
+		A9AF69EE19951DA200D4A5A2 /* Geometry.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Geometry.cpp; sourceTree = "<group>"; };
+		A9AF69F419951EA900D4A5A2 /* ATransformation.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ATransformation.cpp; sourceTree = "<group>"; };
+		A9AF69F71995200300D4A5A2 /* ATransformation.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = ATransformation.hpp; path = include/ATransformation.hpp; sourceTree = SOURCE_ROOT; };
+		A9AF69F81995200300D4A5A2 /* Cube.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Cube.hpp; path = include/Cube.hpp; sourceTree = SOURCE_ROOT; };
+		A9AF69F91995200300D4A5A2 /* Geometry.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Geometry.hpp; path = include/Geometry.hpp; sourceTree = SOURCE_ROOT; };
+		A9BB872C1993E570009D47CD /* Engine.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; name = Engine.hpp; path = include/Engine.hpp; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -26,7 +46,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A93C942819953FEC000D17E7 /* SDL2_image.framework in Frameworks */,
 				A93C002F1993DCF300D3C57E /* SDL2.framework in Frameworks */,
+				A93C9412199530BB000D17E7 /* OpenGL.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,7 +68,13 @@
 		A92A1DD61992417C00AAB829 /* include */ = {
 			isa = PBXGroup;
 			children = (
-				A9BB872C1993E570009D47CD /* Engine.h */,
+				A9AF69F71995200300D4A5A2 /* ATransformation.hpp */,
+				A9AF69F81995200300D4A5A2 /* Cube.hpp */,
+				A9BB872C1993E570009D47CD /* Engine.hpp */,
+				A9AF69F91995200300D4A5A2 /* Geometry.hpp */,
+				A9501C23199694C30092C89F /* OpenGL.hpp */,
+				A93C94141995336E000D17E7 /* Shader.hpp */,
+				A93C9426199537B5000D17E7 /* Texture.hpp */,
 			);
 			name = include;
 			path = inc;
@@ -55,8 +83,13 @@
 		A92A1DDE1992417C00AAB829 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				A92A1DDF1992417C00AAB829 /* main.cpp */,
+				A9AF69F419951EA900D4A5A2 /* ATransformation.cpp */,
+				A93C9422199534C4000D17E7 /* Cube.cpp */,
 				A93C00321993E19600D3C57E /* Engine.cpp */,
+				A9AF69EE19951DA200D4A5A2 /* Geometry.cpp */,
+				A92A1DDF1992417C00AAB829 /* main.cpp */,
+				A93C942019953378000D17E7 /* Shader.cpp */,
+				A93C942419953797000D17E7 /* Texture.cpp */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -80,7 +113,9 @@
 		A93C00301993DCFE00D3C57E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				A93C9411199530BA000D17E7 /* OpenGL.framework */,
 				A93C002E1993DCF300D3C57E /* SDL2.framework */,
+				A93C942719953FEC000D17E7 /* SDL2_image.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -161,8 +196,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9AF69F519951EA900D4A5A2 /* ATransformation.cpp in Sources */,
+				A93C942519953797000D17E7 /* Texture.cpp in Sources */,
 				A93C00311993DDF300D3C57E /* main.cpp in Sources */,
+				A9AF69EF19951DA200D4A5A2 /* Geometry.cpp in Sources */,
 				A93C00341993E19600D3C57E /* Engine.cpp in Sources */,
+				A93C9423199534C4000D17E7 /* Cube.cpp in Sources */,
+				A93C942119953378000D17E7 /* Shader.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

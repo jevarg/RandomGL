@@ -6,9 +6,8 @@
 //  Copyright (c) 2014 Jean Gravier. All rights reserved.
 //
 
-#include <SDL2/SDL.h>
 #include <iostream>
-#include "Engine.h"
+#include "Engine.hpp"
 
 
 int main()
