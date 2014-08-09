@@ -10,7 +10,7 @@
 #include "Texture.hpp"
 
 Texture::Texture()
-: _id(0), _SDLTexture(NULL)
+: _id(0)
 {
     
 }
@@ -31,11 +31,11 @@ int		Texture::getID() const
 
 bool Texture::load(const std::string &path)
 {
-    GLenum	textureFormat = 0;
-    GLenum	textureByteOrder = 0;
+    SDL_Surface	*SDLTexture = IMG_Load(path.c_str());
+    GLenum		textureFormat = 0;
+    GLenum		textureByteOrder = 0;
     
-    _SDLTexture = IMG_Load(path.c_str());
-    if (_SDLTexture == NULL)
+    if (SDLTexture == NULL)
     {
         std::cerr << "Error: " << SDL_GetError() << std::endl;
         return (false);
@@ -47,22 +47,22 @@ bool Texture::load(const std::string &path)
     //    Texture binding
     glBindTexture(GL_TEXTURE_2D, _id);
     
-    if (_SDLTexture->format->BytesPerPixel == 3) // 3 -> R G B
+    if (SDLTexture->format->BytesPerPixel == 3) // 3 -> R G B
     {
         textureFormat = GL_RGB;
         
         //        Checking texture byte order
-        if (_SDLTexture->format->Rmask == 0xff)
+        if (SDLTexture->format->Rmask == 0xff)
             textureByteOrder = GL_RGB;
         else
             textureByteOrder = GL_BGR;
     }
-    else if (_SDLTexture->format->BytesPerPixel == 4) // 4 -> R G B A
+    else if (SDLTexture->format->BytesPerPixel == 4) // 4 -> R G B A
     {
         textureFormat = GL_RGBA;
         
         //        Checking texture byte order
-        if (_SDLTexture->format->Rmask == 0xff)
+        if (SDLTexture->format->Rmask == 0xff)
             textureByteOrder = GL_RGBA;
         else
             textureByteOrder = GL_BGRA;
@@ -70,12 +70,12 @@ bool Texture::load(const std::string &path)
     else
     {
         std::cerr << "Texture format error !" << std::endl;
-        SDL_FreeSurface(_SDLTexture);
+        SDL_FreeSurface(SDLTexture);
         return (false);
     }
     
     //    Copying texture data
-    glTexImage2D(GL_TEXTURE_2D, 0, textureFormat, _SDLTexture->w, _SDLTexture->h, 0, textureByteOrder, GL_UNSIGNED_BYTE, _SDLTexture->pixels);
+    glTexImage2D(GL_TEXTURE_2D, 0, textureFormat, SDLTexture->w, SDLTexture->h, 0, textureByteOrder, GL_UNSIGNED_BYTE, SDLTexture->pixels);
     
     //    Setting texture filtering behaviour
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINE);
@@ -83,6 +83,8 @@ bool Texture::load(const std::string &path)
     
     //    Texture unbinding
     glBindTexture(GL_TEXTURE_2D, 0);
+    
+    SDL_FreeSurface(SDLTexture);
     
     return (true);
 }

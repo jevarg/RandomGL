@@ -29,7 +29,6 @@ public:
     
 private:
     GLuint			_id;
-    SDL_Surface		*_SDLTexture;
 };
 
 #endif
