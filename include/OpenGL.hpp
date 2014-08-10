@@ -11,14 +11,14 @@
 
 # ifdef __APPLE__
 #  include <OpenGL/gl3.h>
-# else
+# elif defined(__linux__)
 #   ifndef GL_GLEXT_PROTOTYPES
 #    define GL_GLEXT_PROTOTYPES
 #   endif
 #  include <GL/gl.h>
 #  include <GL/glext.h>
-# else
-#
+# elif defined (__MINGW32__)
+# include <GL/glew.h>
 # endif
 
 
