@@ -11,7 +11,7 @@
 
 # include <string>
 # include <SDL2/SDL.h>
-# include <SDL2_image/SDL_image.h>
+# include <SDL2/SDL_image.h>
 # include "OpenGL.hpp"
 
 class Texture
@@ -20,13 +20,13 @@ class Texture
 public:
     Texture();
     virtual ~Texture();
-    
+
     bool	load(const std::string &path);
-    
+
 
     //    Getters
     int		getID() const;
-    
+
 private:
     GLuint			_id;
 };

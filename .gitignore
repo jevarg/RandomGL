@@ -1,1 +1,7 @@
 randomgl
+*.xcodeproj
+*.cbp
+*.layout
+*.depend
+bin
+obj
