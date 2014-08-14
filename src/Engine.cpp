@@ -78,7 +78,7 @@ bool	Engine::init()
 
     if(_window == 0)
     {
-        std::cout << "Erreur lors de la creation de la window : " << SDL_GetError() << std::endl;
+        std::cout << "SDL2 window error: " << SDL_GetError() << std::endl;
         return (false);
     }
 
@@ -97,7 +97,7 @@ bool	Engine::init()
 
         if(glewReturn != GLEW_OK)
         {
-            std::cout << "Erreur d'initialisation de GLEW : " << glewGetErrorString(glewReturn) << std::endl;
+            std::cout << "GLEW init error : " << glewGetErrorString(glewReturn) << std::endl;
             return (false);
         }
 #endif // WIN32

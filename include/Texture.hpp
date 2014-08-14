@@ -11,7 +11,13 @@
 
 # include <string>
 # include <SDL2/SDL.h>
-# include <SDL2/SDL_image.h>
+
+# ifdef __APPLE__
+# 	include <SDL2_image/SDL_image.h>
+# else // WIN32 and LINUX
+# 	include <SDL2/SDL_image.h>
+# endif // __APPLE__
+
 # include "OpenGL.hpp"
 
 class Texture

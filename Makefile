@@ -15,7 +15,8 @@ SRC         =	main.cpp \
                 ATransformation.cpp \
                 Geometry.cpp \
                 Cube.cpp \
-                Shader.cpp
+                Shader.cpp \
+                Texture.cpp
 
 ifeq ($(UNAME_S), Darwin)
     CC          =   clang++
@@ -42,8 +43,8 @@ ifneq ($(UNAME_S), Darwin)
 	LDFLAGS	+=	-Wl,-O1
     LDFLAGS += -lSDL2
 else
-    LDFLAGS +=  -F/Library/Frameworks -framework SDL2
-    CFLAGS +=  -F/Library/Frameworks -framework SDL2
+    LDFLAGS +=  -F/Library/Frameworks -framework SDL2 -framework SDL2_Image -framework OpenGL
+    CFLAGS +=  -F/Library/Frameworks -framework SDL2 -framework SDL2_Image -framework OpenGL
 endif
 
 OBJ         =	$(patsubst %${FILETYPE},${OBJDIR}%.o, $(SRC))
