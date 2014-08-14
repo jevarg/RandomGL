@@ -20,11 +20,13 @@
 #  define GEN_VERTEX_ARRAY glGenVertexArraysAPPLE
 #  define BIND_VERTEX_ARRAY glBindVertexArrayAPPLE
 #  define DELETE_VERTEX_ARRAY glDeleteVertexArraysAPPLE
+
 # else
 #  include "OpenGL.hpp"
 #  define GEN_VERTEX_ARRAY glGenVertexArrays
 #  define BIND_VERTEX_ARRAY glBindVertexArray
 #  define DELETE_VERTEX_ARRAY glDeleteVertexArrays
+
 # endif
 
 # include <iostream>

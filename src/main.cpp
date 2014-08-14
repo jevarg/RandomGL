@@ -9,10 +9,11 @@
 #include <iostream>
 #include "Engine.hpp"
 
-
-int main()
+int main(int argc, char **argv)
 {
     Engine game(800, 600);
     game.init();
     game.start();
+
+    return (0);
 }

@@ -38,63 +38,63 @@ Geometry    &Geometry::pushNormal(const glm::vec3 &normal)
 void    Geometry::draw(Shader *shader, const glm::mat4 &transformation, GLenum mode)
 {
     BIND_VERTEX_ARRAY(_vaoID);
-    
+
     shader->setUniform("model", transformation);
     glDrawArrays(mode, 0, _vertices.size() / 3);
-    
+
     BIND_VERTEX_ARRAY(0);
 }
 
 void    Geometry::build(GLenum usage)
 {
     int verticesBytes, UVBytes, normalsBytes = 0;
-    
+
     if (!_vertices.size() || !_UVs.size())
     {
         std::cerr << "Geometry Error: one vector is empty at least" << std::endl;
         return ;
     }
-    
+
     verticesBytes = _vertices.size() * sizeof(float);
     UVBytes = _UVs.size() * sizeof(float);
     normalsBytes = _normals.size() * sizeof(float);
-    
+
     if (!verticesBytes)
     {
         std::cerr << "Geometry: Vertices empty" << std::endl;
         return ;
     }
-    
+
     glGenBuffers(1, &_vboID);
     GEN_VERTEX_ARRAY(1, &_vaoID);
-    
+
     glBindBuffer(GL_ARRAY_BUFFER, _vboID);
-    
+
     // VRAM allocation
     glBufferData(GL_ARRAY_BUFFER, verticesBytes + UVBytes + normalsBytes, NULL, usage);
     glBufferSubData(GL_ARRAY_BUFFER, 0, verticesBytes, &_vertices[0]);
     glBufferSubData(GL_ARRAY_BUFFER, verticesBytes, UVBytes, &_UVs[0]);
     glBufferSubData(GL_ARRAY_BUFFER, verticesBytes + UVBytes, normalsBytes, &_normals[0]);
-    
+
     glBindBuffer(GL_ARRAY_BUFFER, 0);
-    
+
     BIND_VERTEX_ARRAY(_vaoID);
-    
+
     glBindBuffer(GL_ARRAY_BUFFER, _vboID);
-    
+
     // Getting vertices from GPU
     glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, BUFFER_OFFSET(0));
     glEnableVertexAttribArray(0);
-    
+
     // Getting UVs from GPU
     glVertexAttribPointer(3, 2, GL_FLOAT, GL_FALSE, 0, BUFFER_OFFSET(verticesBytes));
     glEnableVertexAttribArray(3);
-    
+
     // Getting normals from GPU
     glVertexAttribPointer(2, 3, GL_FLOAT, GL_FALSE, 0, BUFFER_OFFSET(verticesBytes + UVBytes));
     glEnableVertexAttribArray(2);
-    
+
     glBindBuffer(GL_ARRAY_BUFFER, 0);
-    
+
     BIND_VERTEX_ARRAY(0);
 }
