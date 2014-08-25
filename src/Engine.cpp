@@ -10,10 +10,11 @@
 #include "OpenGL.hpp"
 
 Engine::Engine(int windowX, int windowY)
-: _windowX(windowX), _windowY(windowY), _running(false)
+: _windowWidth(windowX), _windowHeight(windowY), _running(false), _mainShader("assets/shaders/main.vert", "assets/shaders/main.frag")
 {
     _window = NULL;
     _context = 0;
+    _camera = NULL;
 //    _event = NULL;
 }
 
@@ -26,6 +27,9 @@ Engine::~Engine()
     if (_window != NULL)
         SDL_DestroyWindow(_window);
     SDL_Quit();
+    
+    if (_camera != NULL)
+        delete _camera;
 }
 
 
@@ -64,8 +68,10 @@ bool	Engine::init()
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 3);
 
 #ifdef __APPLE__
+    
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
-#endif
+    
+#endif // __APPLE__
 
     //    Enabling Double Buffering
 
@@ -74,7 +80,7 @@ bool	Engine::init()
 
     //    Window Creation
 
-    _window = SDL_CreateWindow("RandomGL", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, _windowX, _windowY, SDL_WINDOW_SHOWN | SDL_WINDOW_OPENGL);
+    _window = SDL_CreateWindow("RandomGL", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, _windowWidth, _windowHeight, SDL_WINDOW_SHOWN | SDL_WINDOW_OPENGL);
 
     if(_window == 0)
     {
@@ -112,14 +118,48 @@ void	Engine::stop()
 
 void	Engine::start()
 {
+    Clock			clock;
+    unsigned int	frameRate = (1000 / MAX_FPS);
+    unsigned int	elapsedTime = 0;
+    
     _running = true;
-
+    
+    _camera = new Camera(_windowWidth, _windowHeight);
+    _mainShader.create();
+    
+    
     //    Main Loop
-
+    
     while (_running)
     {
-        SDL_WaitEvent(&_event);
+//        clock.reset();
+        SDL_PollEvent(&_event);
         if (_event.type == SDL_QUIT || _event.key.keysym.sym == SDLK_ESCAPE)
             stop();
+
+        
+        
+        //    Window clearing and swapping
+        
+        glClear(GL_COLOR_BUFFER_BIT);
+        
+        _camera->lookAt();
+        
+        _mainShader.bind();
+        _mainShader.setUniform("projection", _camera->getProjection());
+        _mainShader.setUniform("view", _camera->getTransformation());
+        _mainShader.setUniform("gColor", glm::vec4(1));
+        _mainShader.setUniform("camPos", _camera->getPosition());
+        _mainShader.setUniform("light", glm::vec4(0));
+        
+        //        FPS limit management
+        
+//        elapsedTime = clock.getElapsed();
+//        if (elapsedTime < frameRate)
+//            SDL_Delay(frameRate - elapsedTime);
+//        if (elapsedTime > 0.1)
+//            	std::cout << "FPS: " << frameRate / elapsedTime << std::endl;
+        
+        SDL_GL_SwapWindow(_window);
     }
 }

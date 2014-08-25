@@ -16,7 +16,9 @@ SRC         =	main.cpp \
                 Geometry.cpp \
                 Cube.cpp \
                 Shader.cpp \
-                Texture.cpp
+                Texture.cpp \
+                Clock.cpp \
+                Camera.cpp
 
 ifeq ($(UNAME_S), Darwin)
     CC          =   clang++

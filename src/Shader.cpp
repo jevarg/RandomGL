@@ -112,7 +112,7 @@ void Shader::initialize(GLuint &shader, GLenum type, const std::string &path)
         
         glGetShaderInfoLog(shader, length, &length, error);
         
-        throw std::runtime_error(std::string("Shader file: ") + path + std::string(" failed to compile: ") + std::string(error));
+        throw std::runtime_error(std::string("Shader file: ") + path + std::string(" failed to compile: \n") + std::string(error));
         
         delete[] error;
     }
