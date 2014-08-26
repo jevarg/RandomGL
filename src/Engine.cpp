@@ -8,9 +8,10 @@
 
 #include "Engine.hpp"
 #include "OpenGL.hpp"
+#include "Cube.hpp"
 
 Engine::Engine(int windowX, int windowY)
-: _windowWidth(windowX), _windowHeight(windowY), _running(false), _mainShader("assets/shaders/main.vert", "assets/shaders/main.frag")
+: _windowWidth(windowX), _windowHeight(windowY), _running(false), _mainShader("assets/shaders/basic.vert", "assets/shaders/basic.frag")
 {
     _window = NULL;
     _context = 0;
@@ -65,7 +66,7 @@ bool	Engine::init()
     //    Setting OpenGL Version
 
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 3);
-    SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 3);
+    SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 1);
 
 #ifdef __APPLE__
     
@@ -119,12 +120,18 @@ void	Engine::stop()
 void	Engine::start()
 {
     Clock			clock;
+    Cube			cube;
     unsigned int	frameRate = (1000 / MAX_FPS);
     unsigned int	elapsedTime = 0;
     
     _running = true;
     
     _camera = new Camera(_windowWidth, _windowHeight);
+    _camera->setPosition(glm::vec3(0, 3, 3));
+    
+//    cube.loadTexture("assets/textures/cube/grass.png");
+    cube.build();
+    
     _mainShader.create();
     
     
@@ -148,9 +155,11 @@ void	Engine::start()
         _mainShader.bind();
         _mainShader.setUniform("projection", _camera->getProjection());
         _mainShader.setUniform("view", _camera->getTransformation());
-        _mainShader.setUniform("gColor", glm::vec4(1));
-        _mainShader.setUniform("camPos", _camera->getPosition());
-        _mainShader.setUniform("light", glm::vec4(0));
+        
+        cube.draw(&_mainShader);
+//        _mainShader.setUniform("gColor", glm::vec4(1));
+//        _mainShader.setUniform("camPos", _camera->getPosition());
+//        _mainShader.setUniform("light", glm::vec4(0));
         
         //        FPS limit management
         
