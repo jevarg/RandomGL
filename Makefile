@@ -5,51 +5,50 @@
 ## Login   <moriss_h@epitech.net>
 ##
 ## Started on  Sun Jun  9 03:35:24 2013 Hugues
-## Last update Fri Jul 11 23:36:09 2014 Jean Gravier
+## Last update Fri May  8 13:30:25 2015 Jean Gravier
 ##
 
 UNAME_S 	:= 	$(shell uname -s)
 
-SRC         =	main.cpp \
-                Engine.cpp \
-                ATransformation.cpp \
-                Geometry.cpp \
-                Cube.cpp \
-                Shader.cpp \
-                Texture.cpp \
-                Clock.cpp \
-                Camera.cpp
+SRC         	=	main.cpp \
+		 	Engine.cpp \
+	                ATransformation.cpp \
+	 	        Geometry.cpp \
+			Cube.cpp \
+	                Shader.cpp \
+	 	        Texture.cpp \
+	                Clock.cpp \
+			Camera.cpp
 
 ifeq ($(UNAME_S), Darwin)
-    CC          =   clang++
+    CC          =   	clang++
 else
     CC          =	g++
 endif
 
 FILETYPE	=	.cpp
 
-RM          =	rm -f
+RM          	=	rm -f
 
 NAME		=	randomgl
 
 OBJDIR		=	obj/
 SRCDIR		=	src/
 INCDIR		=	include/
-LIBDIR      =   libs/
+LIBDIR      	=   	libs/
 
 CFLAGS		+=	-I$(INCDIR)
 CFLAGS		+=	-Wall -Wextra -Winit-self
 CFLAGS		+=	-g3
 
 ifneq ($(UNAME_S), Darwin)
-	LDFLAGS	+=	-Wl,-O1
-    LDFLAGS += -lSDL2
+ LDFLAGS	+=	-Wl,-O1
+ LDFLAGS 	+= 	-lSDL2 -lSDL2_image -lGL
 else
-    LDFLAGS +=  -F/Library/Frameworks -framework SDL2 -framework SDL2_Image -framework OpenGL
-    CFLAGS +=  -F/Library/Frameworks -framework SDL2 -framework SDL2_Image -framework OpenGL
+ LDFLAGS 	+=  	-F/Library/Frameworks -framework SDL2 -framework SDL2_Image -framework OpenGL
 endif
 
-OBJ         =	$(patsubst %${FILETYPE},${OBJDIR}%.o, $(SRC))
+OBJ         	=	$(patsubst %${FILETYPE},${OBJDIR}%.o, $(SRC))
 DEPS		=	$(patsubst %${FILETYPE}, ${OBJDIR}%.d, $(SRC))
 
 PRINTFLAGS	=	0
