@@ -11,6 +11,8 @@
 
 int main(int argc, char **argv)
 {
+    ( void ) argc;
+    ( void ) argv;
     Engine game(800, 600);
     game.init();
     game.start();
