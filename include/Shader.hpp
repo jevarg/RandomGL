@@ -1,27 +1,26 @@
 
 #ifndef SHADER_HPP_
-# define SHADER_HPP_
+#define SHADER_HPP_
 
-# ifndef GLM_FORCE_RADIANS
-#  define GLM_FORCE_RADIANS
-# endif
+#ifndef GLM_FORCE_RADIANS
+#    define GLM_FORCE_RADIANS
+#endif
 
-# include <glm/glm.hpp>
-# include <glm/gtc/type_ptr.hpp>
-# include <iostream>
-# include <string>
-# include <fstream>
-# include <map>
-# include <stdexcept>
-# include "OpenGL.hpp"
+#include <glm/glm.hpp>
+#include <glm/gtc/type_ptr.hpp>
+#include <iostream>
+#include <string>
+#include <fstream>
+#include <map>
+#include <stdexcept>
+#include "OpenGL.hpp"
 
 class Shader
 {
 
 public:
-
-    Shader(const std::string &vertexSource, const std::string &fragmentSource);
-    Shader(const Shader &shader);
+    Shader(const std::string& vertexSource, const std::string& fragmentSource);
+    Shader(const Shader& shader);
     ~Shader();
 
     void create();
@@ -35,13 +34,12 @@ public:
     bool setUniform(std::string const& name, glm::mat4 const& matrix) const;
 
     GLuint getProgramID() const;
-    Shader& operator=(Shader const &shader);
+    Shader& operator=(Shader const& shader);
 
-    int operator[](const std::string &uni_string); //Return the location of the associated uniform
+    int operator[](const std::string& uni_string); //Return the location of the associated uniform
 
 private:
-
-    void initialize(GLuint &shader, GLenum type, std::string const &source);
+    void initialize(GLuint& shader, GLenum type, std::string const& source);
     void bindAttribLocation();
     void bindUniformMap();
 

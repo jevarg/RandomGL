@@ -3,7 +3,6 @@
 
 Geometry::Geometry()
 {
-
 }
 
 Geometry::~Geometry()
@@ -12,7 +11,7 @@ Geometry::~Geometry()
     DELETE_VERTEX_ARRAY(1, &_vaoID);
 }
 
-Geometry    &Geometry::pushVertex(const glm::vec3 &vertex)
+Geometry &Geometry::pushVertex(const glm::vec3 &vertex)
 {
     _vertices.push_back(vertex.x);
     _vertices.push_back(vertex.y);
@@ -20,14 +19,14 @@ Geometry    &Geometry::pushVertex(const glm::vec3 &vertex)
     return (*this);
 }
 
-Geometry    &Geometry::pushUv(const glm::vec2 &uv)
+Geometry &Geometry::pushUv(const glm::vec2 &uv)
 {
     _UVs.push_back(uv.x);
     _UVs.push_back(uv.y);
     return (*this);
 }
 
-Geometry    &Geometry::pushNormal(const glm::vec3 &normal)
+Geometry &Geometry::pushNormal(const glm::vec3 &normal)
 {
     _normals.push_back(normal.x);
     _normals.push_back(normal.y);
@@ -35,7 +34,7 @@ Geometry    &Geometry::pushNormal(const glm::vec3 &normal)
     return (*this);
 }
 
-void    Geometry::draw(Shader *shader, const glm::mat4 &transformation, GLenum mode)
+void Geometry::draw(Shader *shader, const glm::mat4 &transformation, GLenum mode)
 {
     BIND_VERTEX_ARRAY(_vaoID);
 
@@ -45,14 +44,14 @@ void    Geometry::draw(Shader *shader, const glm::mat4 &transformation, GLenum m
     BIND_VERTEX_ARRAY(0);
 }
 
-void    Geometry::build(GLenum usage)
+void Geometry::build(GLenum usage)
 {
     int verticesBytes, UVBytes, normalsBytes = 0;
 
     if (!_vertices.size() || !_UVs.size())
     {
         std::cerr << "Geometry Error: one vector is empty at least" << std::endl;
-        return ;
+        return;
     }
 
     verticesBytes = _vertices.size() * sizeof(float);
@@ -62,7 +61,7 @@ void    Geometry::build(GLenum usage)
     if (!verticesBytes)
     {
         std::cerr << "Geometry: Vertices empty" << std::endl;
-        return ;
+        return;
     }
 
     glGenBuffers(1, &_vboID);

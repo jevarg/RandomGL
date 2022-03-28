@@ -16,7 +16,7 @@ Engine::Engine(int windowX, int windowY)
     _window = NULL;
     _context = 0;
     _camera = NULL;
-//    _event = NULL;
+    //    _event = NULL;
 }
 
 Engine::~Engine()
@@ -28,7 +28,7 @@ Engine::~Engine()
     if (_window != NULL)
         SDL_DestroyWindow(_window);
     SDL_Quit();
-    
+
     if (_camera != NULL)
         delete _camera;
 }
@@ -38,7 +38,7 @@ Engine::~Engine()
 /****Getters****/
 /***************/
 
-bool	Engine::isRunning() const
+bool Engine::isRunning() const
 {
     return (_running);
 }
@@ -48,16 +48,15 @@ bool	Engine::isRunning() const
 /***************/
 
 
-
 /***************/
 /****Methods****/
 /***************/
 
-bool	Engine::init()
+bool Engine::init()
 {
     //    SDL2 Init
 
-    if(SDL_Init(SDL_INIT_VIDEO) < 0)
+    if (SDL_Init(SDL_INIT_VIDEO) < 0)
     {
         std::cerr << "SDL2 init error: " << SDL_GetError() << std::endl;
         return (false);
@@ -69,9 +68,9 @@ bool	Engine::init()
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 1);
 
 #ifdef __APPLE__
-    
+
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_CORE);
-    
+
 #endif // __APPLE__
 
     //    Enabling Double Buffering
@@ -83,7 +82,7 @@ bool	Engine::init()
 
     _window = SDL_CreateWindow("RandomGL", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, _windowWidth, _windowHeight, SDL_WINDOW_SHOWN | SDL_WINDOW_OPENGL);
 
-    if(_window == 0)
+    if (_window == 0)
     {
         std::cout << "SDL2 window error: " << SDL_GetError() << std::endl;
         return (false);
@@ -100,75 +99,74 @@ bool	Engine::init()
     }
 
 #ifdef WIN32
-        GLenum glewReturn = glewInit();
+    GLenum glewReturn = glewInit();
 
-        if(glewReturn != GLEW_OK)
-        {
-            std::cout << "GLEW init error : " << glewGetErrorString(glewReturn) << std::endl;
-            return (false);
-        }
+    if (glewReturn != GLEW_OK)
+    {
+        std::cout << "GLEW init error : " << glewGetErrorString(glewReturn) << std::endl;
+        return (false);
+    }
 #endif // WIN32
 
     return (true);
 }
 
-void	Engine::stop()
+void Engine::stop()
 {
     _running = false;
 }
 
-void	Engine::start()
+void Engine::start()
 {
-    Clock			clock;
-    Cube			cube;
-    unsigned int	frameRate = (1000 / MAX_FPS);
-    unsigned int	elapsedTime = 0;
-    
+    Clock clock;
+    Cube cube;
+    unsigned int frameRate = (1000 / MAX_FPS);
+    unsigned int elapsedTime = 0;
+
     _running = true;
-    
+
     _camera = new Camera(_windowWidth, _windowHeight);
     _camera->setPosition(glm::vec3(0, 3, 3));
-    
-//    cube.loadTexture("assets/textures/cube/grass.png");
+
+    //    cube.loadTexture("assets/textures/cube/grass.png");
     cube.build();
-    
+
     _mainShader.create();
-    
-    
+
+
     //    Main Loop
-    
+
     while (_running)
     {
-//        clock.reset();
+        //        clock.reset();
         SDL_PollEvent(&_event);
         if (_event.type == SDL_QUIT || _event.key.keysym.sym == SDLK_ESCAPE)
             stop();
 
-        
-        
+
         //    Window clearing and swapping
-        
+
         glClear(GL_COLOR_BUFFER_BIT);
-        
+
         _camera->lookAt();
-        
+
         _mainShader.bind();
         _mainShader.setUniform("projection", _camera->getProjection());
         _mainShader.setUniform("view", _camera->getTransformation());
-        
+
         cube.draw(&_mainShader);
-//        _mainShader.setUniform("gColor", glm::vec4(1));
-//        _mainShader.setUniform("camPos", _camera->getPosition());
-//        _mainShader.setUniform("light", glm::vec4(0));
-        
+        //        _mainShader.setUniform("gColor", glm::vec4(1));
+        //        _mainShader.setUniform("camPos", _camera->getPosition());
+        //        _mainShader.setUniform("light", glm::vec4(0));
+
         //        FPS limit management
-        
-//        elapsedTime = clock.getElapsed();
-//        if (elapsedTime < frameRate)
-//            SDL_Delay(frameRate - elapsedTime);
-//        if (elapsedTime > 0.1)
-//            	std::cout << "FPS: " << frameRate / elapsedTime << std::endl;
-        
+
+        //        elapsedTime = clock.getElapsed();
+        //        if (elapsedTime < frameRate)
+        //            SDL_Delay(frameRate - elapsedTime);
+        //        if (elapsedTime > 0.1)
+        //            	std::cout << "FPS: " << frameRate / elapsedTime << std::endl;
+
         SDL_GL_SwapWindow(_window);
     }
 }

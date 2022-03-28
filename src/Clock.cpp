@@ -11,20 +11,18 @@
 
 Clock::Clock()
 {
-    
 }
 
 Clock::~Clock()
 {
-    
 }
 
-void	Clock::reset()
+void Clock::reset()
 {
     _ticks = SDL_GetTicks();
 }
 
-unsigned int	Clock::getElapsed() const
+unsigned int Clock::getElapsed() const
 {
     return (SDL_GetTicks() - _ticks);
 }

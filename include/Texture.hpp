@@ -7,18 +7,18 @@
 //
 
 #ifndef randomgl_Texture_hpp
-# define randomgl_Texture_hpp
+#define randomgl_Texture_hpp
 
-# include <string>
-# include <SDL2/SDL.h>
+#include <string>
+#include <SDL2/SDL.h>
 
-# ifdef __APPLE__
-# 	include <SDL2_image/SDL_image.h>
-# else // WIN32 and LINUX
-# 	include <SDL2/SDL_image.h>
-# endif // __APPLE__
+#ifdef __APPLE__
+#    include <SDL2_image/SDL_image.h>
+#else // WIN32 and LINUX
+#    include <SDL2/SDL_image.h>
+#endif // __APPLE__
 
-# include "OpenGL.hpp"
+#include "OpenGL.hpp"
 
 class Texture
 {
@@ -27,14 +27,14 @@ public:
     Texture();
     virtual ~Texture();
 
-    bool	load(const std::string &path);
+    bool load(const std::string &path);
 
 
     //    Getters
-    int		getID() const;
+    int getID() const;
 
 private:
-    GLuint			_id;
+    GLuint _id;
 };
 
 #endif

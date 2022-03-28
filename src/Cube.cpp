@@ -11,22 +11,20 @@ Cube::Cube()
 Cube::Cube(const Cube &cube)
 : ATransformation(), _geometry(cube._geometry), _texture(cube._texture)
 {
-
 }
 
 Cube::~Cube()
 {
-
 }
 
-Cube   &Cube::operator=(const Cube& c)
+Cube &Cube::operator=(const Cube &c)
 {
     _geometry = c._geometry;
     _texture = c._texture;
     return *this;
 }
 
-void	Cube::build()
+void Cube::build()
 {
     _geometry = new Geometry;
 
@@ -41,8 +39,7 @@ void	Cube::build()
         glm::vec3(-0.500000, -0.500000, -0.500000),
     };
 
-    glm::vec2 uv[] =
-    {
+    glm::vec2 uv[] = {
         glm::vec2(0, 0.333333333333333),
         glm::vec2(0.25, 0.333333333333333),
         glm::vec2(0.25, 0.666666666666667),
@@ -126,17 +123,17 @@ void	Cube::build()
     _geometry->build(GL_STATIC_DRAW);
 }
 
-bool    Cube::loadTexture(const std::string &path, bool smooth)
+bool Cube::loadTexture(const std::string &path, bool smooth)
 {
     if (_texture == NULL)
         _texture = new Texture;
     _texture->load(path);
-//    _texture->setSmooth(smooth);
+    //    _texture->setSmooth(smooth);
 
     return (true);
 }
 
-void    Cube::draw(Shader *shader)
+void Cube::draw(Shader *shader)
 {
     //    Texture binding
     if (_texture != NULL)
@@ -147,7 +144,7 @@ void    Cube::draw(Shader *shader)
     glBindTexture(GL_TEXTURE_2D, 0);
 }
 
-void	Cube::destroy()
+void Cube::destroy()
 {
     if (_geometry != NULL)
         delete _geometry;

@@ -7,21 +7,21 @@
 //
 
 #ifndef randomgl_Clock_hpp
-# define randomgl_Clock_hpp
+#define randomgl_Clock_hpp
 
 class Clock
 {
 public:
     Clock();
     virtual ~Clock();
-    
-    void			reset();
-    void			update();
-    
-    unsigned int	getElapsed() const;
-    
+
+    void reset();
+    void update();
+
+    unsigned int getElapsed() const;
+
 private:
-    unsigned int	_ticks;
+    unsigned int _ticks;
 };
 
 #endif
