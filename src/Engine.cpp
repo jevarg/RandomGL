@@ -146,7 +146,7 @@ void Engine::start()
     {
         //        clock.reset();
         SDL_PollEvent(&_event);
-        if (_event.type == SDL_QUIT || _event.key.keysym.sym == SDLK_ESCAPE)
+        if (_event.type == SDL_QUIT || _event.key.keysym.scancode == SDL_SCANCODE_ESCAPE)
         {
             stop();
         }
