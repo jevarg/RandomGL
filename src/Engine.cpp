@@ -16,7 +16,7 @@ Engine::Engine(int windowX, int windowY)
     _window = NULL;
     _context = 0;
     _camera = NULL;
-    //    _event = NULL;
+    _event = {0};
 }
 
 Engine::~Engine()
