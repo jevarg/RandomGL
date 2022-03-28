@@ -46,7 +46,7 @@ void Geometry::draw(Shader *shader, const glm::mat4 &transformation, GLenum mode
 
 void Geometry::build(GLenum usage)
 {
-    int verticesBytes, UVBytes, normalsBytes = 0;
+    int verticesBytes = 0, UVBytes = 0, normalsBytes = 0;
 
     if (!_vertices.size() || !_UVs.size())
     {

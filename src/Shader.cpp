@@ -132,8 +132,8 @@ void Shader::bindAttribLocation()
 
 void Shader::bindUniformMap()
 {
-    int uniformNb;
-    int uniformStringLength;
+    int uniformNb = 0;
+    int uniformStringLength = 0;
 
     glGetProgramiv(_programID, GL_ACTIVE_UNIFORMS, &uniformNb);
     glGetProgramiv(_programID, GL_ACTIVE_UNIFORM_MAX_LENGTH, &uniformStringLength);
@@ -143,9 +143,9 @@ void Shader::bindUniformMap()
 
     for (int i = 0; i < uniformNb; i++)
     {
-        unsigned int uniformType;
-        int uniformID;
-        int temp;
+        unsigned int uniformType = 0;
+        int uniformID = 0;
+        int temp = 0;
 
         glGetActiveUniform(_programID, i, uniformStringLength, NULL, &temp, &uniformType, temp_buffer);
         uniformID = glGetUniformLocation(_programID, temp_buffer);
