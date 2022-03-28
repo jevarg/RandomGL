@@ -38,8 +38,8 @@ INCDIR		=	include/
 LIBDIR      	=   	libs/
 
 CFLAGS		+=	-I$(INCDIR)
-CFLAGS		+=	-Wall -Wextra -Winit-self
-CFLAGS		+=	-g3
+CFLAGS		+=	-Wall -Wextra -Wshadow -Wuninitialized -Wpedantic
+CFLAGS		+=	-Og -ggdb3
 
 ifneq ($(UNAME_S), Darwin)
  LDFLAGS	+=	-Wl,-O1
