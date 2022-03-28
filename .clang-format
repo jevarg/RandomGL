@@ -1,0 +1,21 @@
+BasedOnStyle: WebKit
+AlignAfterOpenBracket: AlwaysBreak
+AlignTrailingComments: true
+BraceWrapping:
+  AfterClass: true
+  AfterControlStatement: true
+  AfterFunction: true
+  BeforeElse: true
+BreakBeforeBinaryOperators: None
+BreakBeforeBraces: Custom
+BreakConstructorInitializers: BeforeColon
+ConstructorInitializerIndentWidth: 0
+DerivePointerAlignment: true
+IndentPPDirectives: AfterHash
+IndentWrappedFunctionNames: true
+MaxEmptyLinesToKeep: 2
+ReflowComments: false
+SortIncludes: false
+SpaceAfterCStyleCast: true
+SpaceBeforeCtorInitializerColon: false
+SpacesInCStyleCastParentheses: true

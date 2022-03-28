@@ -18,23 +18,21 @@ Camera::Camera(int windowWidth, int windowHeight)
 
 Camera::~Camera()
 {
-    
 }
 
-void	Camera::lookAt()
+void Camera::lookAt()
 {
     _transformation = glm::lookAt(_position, _viewPosition, _direction);
 }
 
-void	Camera::translate(glm::vec3 vec)
+void Camera::translate(glm::vec3 vec)
 {
     _position += vec;
     _viewPosition += vec;
 }
 
-void	Camera::update()
+void Camera::update()
 {
-    
 }
 
 const glm::mat4 &Camera::getTransformation() const
@@ -42,27 +40,27 @@ const glm::mat4 &Camera::getTransformation() const
     return (_transformation);
 }
 
-const glm::mat4	&Camera::getProjection() const
+const glm::mat4 &Camera::getProjection() const
 {
     return (_projection);
 }
 
-void	Camera::setViewPosition(glm::vec3 vec)
+void Camera::setViewPosition(glm::vec3 vec)
 {
     _viewPosition = vec;
 }
 
-const glm::vec3	&Camera::getViewPosition() const
+const glm::vec3 &Camera::getViewPosition() const
 {
     return (_viewPosition);
 }
 
-const glm::vec3	&Camera::getPosition() const
+const glm::vec3 &Camera::getPosition() const
 {
     return (_position);
 }
 
-void	Camera::setPosition(glm::vec3 position)
+void Camera::setPosition(glm::vec3 position)
 {
     _position = position;
 }
