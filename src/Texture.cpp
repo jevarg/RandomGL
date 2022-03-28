@@ -51,9 +51,13 @@ bool Texture::load(const std::string &path)
 
         //        Checking texture byte order
         if (SDLTexture->format->Rmask == 0xff)
+        {
             textureByteOrder = GL_RGB;
+        }
         else
+        {
             textureByteOrder = GL_BGR;
+        }
     }
     else if (SDLTexture->format->BytesPerPixel == 4) // 4 -> R G B A
     {
@@ -61,9 +65,13 @@ bool Texture::load(const std::string &path)
 
         //        Checking texture byte order
         if (SDLTexture->format->Rmask == 0xff)
+        {
             textureByteOrder = GL_RGBA;
+        }
         else
+        {
             textureByteOrder = GL_BGRA;
+        }
     }
     else
     {

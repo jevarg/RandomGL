@@ -126,7 +126,9 @@ void Cube::build()
 bool Cube::loadTexture(const std::string &path, bool smooth)
 {
     if (_texture == NULL)
+    {
         _texture = new Texture;
+    }
     _texture->load(path);
     //    _texture->setSmooth(smooth);
 
@@ -137,7 +139,9 @@ void Cube::draw(Shader *shader)
 {
     //    Texture binding
     if (_texture != NULL)
+    {
         glBindTexture(GL_TEXTURE_2D, _texture->getID());
+    }
 
     _geometry->draw(shader, getTransformation(), GL_TRIANGLES);
 
@@ -147,7 +151,11 @@ void Cube::draw(Shader *shader)
 void Cube::destroy()
 {
     if (_geometry != NULL)
+    {
         delete _geometry;
+    }
     if (_texture != NULL)
+    {
         delete _texture;
+    }
 }

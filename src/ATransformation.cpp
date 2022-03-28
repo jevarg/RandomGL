@@ -49,12 +49,20 @@ const glm::mat4 ATransformation::getTransformation() const
 
     transform = glm::translate(transform, _position);
     if (_rotation.x)
+    {
         transform = glm::rotate(transform, _rotation.x, glm::vec3(1, 0, 0));
+    }
     if (_rotation.y)
+    {
         transform = glm::rotate(transform, _rotation.y, glm::vec3(0, 1, 0));
+    }
     if (_rotation.z)
+    {
         transform = glm::rotate(transform, _rotation.z, glm::vec3(0, 0, 1));
+    }
     if (_scale != glm::vec3(1.0, 1.0, 1.0))
+    {
         transform = glm::scale(transform, _scale);
+    }
     return (transform);
 }

@@ -11,7 +11,9 @@ Shader::Shader(Shader const &shader)
 : _vertexSource(shader._vertexSource), _fragmentSource(shader._fragmentSource), _vertexID(0), _fragmentID(0), _programID(0), _initialise(shader._initialise)
 {
     if (_initialise == true)
+    {
         create();
+    }
 }
 
 
@@ -69,7 +71,9 @@ void Shader::create()
 void Shader::initialize(GLuint &shader, GLenum type, const std::string &path)
 {
     if (type == GL_VERTEX_SHADER || type == GL_FRAGMENT_SHADER)
+    {
         shader = glCreateShader(type);
+    }
     else
     {
         glDeleteShader(shader);

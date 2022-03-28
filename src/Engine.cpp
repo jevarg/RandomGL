@@ -24,13 +24,19 @@ Engine::~Engine()
     //    SDL2 Exit
 
     if (_context)
+    {
         SDL_GL_DeleteContext(_context);
+    }
     if (_window != NULL)
+    {
         SDL_DestroyWindow(_window);
+    }
     SDL_Quit();
 
     if (_camera != NULL)
+    {
         delete _camera;
+    }
 }
 
 
@@ -141,7 +147,9 @@ void Engine::start()
         //        clock.reset();
         SDL_PollEvent(&_event);
         if (_event.type == SDL_QUIT || _event.key.keysym.sym == SDLK_ESCAPE)
+        {
             stop();
+        }
 
 
         //    Window clearing and swapping
