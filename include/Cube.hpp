@@ -16,7 +16,7 @@ public:
     virtual ~Cube();
 
     void build();
-    bool loadTexture(const std::string &path, bool smooth = false);
+    bool loadTexture(const std::string &path);
     void draw(Shader *shader);
     void destroy();
 

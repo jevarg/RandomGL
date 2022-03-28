@@ -123,14 +123,13 @@ void Cube::build()
     _geometry->build(GL_STATIC_DRAW);
 }
 
-bool Cube::loadTexture(const std::string &path, bool smooth)
+bool Cube::loadTexture(const std::string &path)
 {
     if (!_texture)
     {
         _texture = new Texture;
     }
     _texture->load(path);
-    //    _texture->setSmooth(smooth);
 
     return (true);
 }
