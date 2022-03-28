@@ -126,8 +126,6 @@ void Engine::start()
 {
     Clock clock;
     Cube cube;
-    unsigned int frameRate = (1000 / MAX_FPS);
-    unsigned int elapsedTime = 0;
 
     _running = true;
 
