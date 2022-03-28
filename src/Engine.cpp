@@ -27,13 +27,13 @@ Engine::~Engine()
     {
         SDL_GL_DeleteContext(_context);
     }
-    if (_window != NULL)
+    if (_window)
     {
         SDL_DestroyWindow(_window);
     }
     SDL_Quit();
 
-    if (_camera != NULL)
+    if (_camera)
     {
         delete _camera;
     }
@@ -88,7 +88,7 @@ bool Engine::init()
 
     _window = SDL_CreateWindow("RandomGL", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, _windowWidth, _windowHeight, SDL_WINDOW_SHOWN | SDL_WINDOW_OPENGL);
 
-    if (_window == 0)
+    if (!_window)
     {
         std::cout << "SDL2 window error: " << SDL_GetError() << std::endl;
         return (false);

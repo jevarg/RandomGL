@@ -33,7 +33,7 @@ bool Texture::load(const std::string &path)
     GLenum textureFormat = 0;
     GLenum textureByteOrder = 0;
 
-    if (SDLTexture == NULL)
+    if (!SDLTexture)
     {
         std::cerr << "Error: " << SDL_GetError() << std::endl;
         return (false);

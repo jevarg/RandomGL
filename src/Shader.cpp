@@ -10,7 +10,7 @@ Shader::Shader(const std::string &vertexSource, const std::string &fragmentSourc
 Shader::Shader(Shader const &shader)
 : _vertexSource(shader._vertexSource), _fragmentSource(shader._fragmentSource), _vertexID(0), _fragmentID(0), _programID(0), _initialise(shader._initialise)
 {
-    if (_initialise == true)
+    if (_initialise)
     {
         create();
     }
